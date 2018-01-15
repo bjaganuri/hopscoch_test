@@ -29,7 +29,7 @@ app.get('/items', (req, res) =>
 //To return home page for invalid route requests
 app.use(function(req,res,next){
 	if (req.accepts(['html', 'json', 'text']) === "html") {
-		res.render('index', { title : 'Falabella Shopping Cart' });
+		res.render('index', { title : 'Hopscotch online store' });
 	}
 	else {
 		res.send({status:"ERROR" , type:'SERVER_ERROR' , message:"Invalid Resource Request"} , req , res);

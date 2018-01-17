@@ -11,7 +11,7 @@ export function* FetchProdList(action){
 	}
 	
 	const response = yield call(CallRest , {
-		url: "/items",
+		url: "http://localhost:3000/items",
 		method: "GET",
 		dataType: "json",
 		data: {

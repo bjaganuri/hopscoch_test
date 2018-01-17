@@ -12,7 +12,6 @@ class ViewProducts extends React.Component {
 	render () {
 		var filtCategory = this.props.route.category;
 		var filtText = this.props.route.text;
-		console.log(this.props);
 		var filteredProdList = {
 			catalog: []
 		};

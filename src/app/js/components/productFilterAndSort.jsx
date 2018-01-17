@@ -60,25 +60,17 @@ class ProductFilterAndSort extends React.Component {
 			return (
 				<p key={price}>
 					<label>
-						<input type="checkbox" className="filterCheckbox" onChange={(event) => this.filterAndSortProductList(event , {type:"price" , value:(idx === 0 ? "0 -" +  price : priceFilterArr[idx-1] + "-"+price)})}/>
-						{idx === 0 ? "0 -" +  price : priceFilterArr[idx-1] + "-"+price }
+						<input type="checkbox" className="filterCheckbox" checked={this.props.productList.filter.price.indexOf(price) !== -1 ? true : false} onChange={(event) => this.filterAndSortProductList(event , {type:"price" , value: price})}/>
+						{price}
 					</label>
 				</p>
 			)
 		});
-		priceFilterList.push((
-			<p key={priceFilterArr[priceFilterArr.length-1]+1}>
-				<label>
-					<input type="checkbox" className="filterCheckbox" onChange={(event) => this.filterAndSortProductList(event , {type:"price" , value:(">" + priceFilterArr[priceFilterArr.length-1])})}/>
-					{">" + priceFilterArr[priceFilterArr.length-1] }
-				</label>
-			</p>
-		));
 		const sortByFilterList = ["LH" , "HL"].map((type) => {
 			return (
 				<p key={type}>
 					<label>
-						<input type="radio" className="filterCheckbox" name="sortByPrice" onChange={(event) => this.filterAndSortProductList(event , {type:"sortByPrice" , value:type})}/>
+						<input type="radio" checked={(this.props.productList.filter.sort !== "" && type === this.props.productList.filter.sort) ? true : false} className="filterCheckbox" name="sortByPrice" onChange={(event) => this.filterAndSortProductList(event , {type:"sortByPrice" , value:type})}/>
 						{type === "LH" ? "Low to High" : "High to Low" }
 					</label>
 				</p>	

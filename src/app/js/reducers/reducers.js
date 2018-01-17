@@ -29,7 +29,7 @@ export const productListReducer = (state = InitialProdList, action) => {
 			state.brandFilter = [...new Set(state.catalog.map((item) => {
 				return item.brandName.toString().trim();
 			}))];
-			state.priceFilter = [...new Set([100 , 500 , 1000 , 5000 , 10000])];
+			state.priceFilter = [...new Set(["0-100" , "100-500" , "500-1000" , "1000-5000" , "5000-10000",">10000"])];
 			break;
 
 		case "PROD_LIST_FETCH_REJECTED":
